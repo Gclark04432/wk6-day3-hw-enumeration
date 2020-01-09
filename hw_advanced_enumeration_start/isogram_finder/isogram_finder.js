@@ -1,23 +1,11 @@
 const IsogramFinder = function (word) {
-  this.word = word.split('');
+  this.word = word.toLowerCase().split('');
 }
 
-IsogramFinder.prototype.wordAsArray = function (word) {
-  const givenLetters = word.map((letter) => {
-    return letter;
-  })
-  return givenLetters;
-};
-
 IsogramFinder.prototype.isIsogram = function () {
-  wordAsArray = this.wordAsArray(this.word);
+  let uniques = Array.from(new Set(this.word)) ;
 
-  const isUnique = this.word.every((letter) => {
-    return !wordAsArray.includes(letter);
-  })
-
-  return isUnique;
-
+  return uniques.length === this.word.length
 };
 
 module.exports = IsogramFinder;
